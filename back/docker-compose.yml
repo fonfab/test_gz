@@ -1,0 +1,37 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres
+    container_name: test_gz_back_db
+    environment:
+      POSTGRES_DB: "connect_db"
+      POSTGRES_USER: "connect_main_user"
+      POSTGRES_PASSWORD: "a4iTYw77"
+    networks:
+      - network
+    ports:
+      - "5432:5432"
+    restart: always
+
+  web:
+    build: .
+    image: test_gz_back
+    container_name: test_gz_back
+    command: bash -c "python manage.py collectstatic --noinput && uvicorn back.asgi:application --workers 1 --host 0.0.0.0 --port 8000"
+    environment:
+      POSTGRES_DB: "connect_db"
+      POSTGRES_USER: "connect_main_user"
+      POSTGRES_PASSWORD: "a4iTYw77"
+    depends_on:
+      - db
+    networks:
+      - network
+    volumes:
+      - ".:/code"
+    ports:
+      - "8000:8000"
+
+networks:
+  network:
+    driver: bridge

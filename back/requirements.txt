@@ -1,0 +1,9 @@
+Django
+djoser
+drf-yasg
+django-filter
+django-jazzmin
+djangorestframework
+django-cors-headers
+psycopg2-binary
+uvicorn
