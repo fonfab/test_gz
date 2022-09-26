@@ -11,6 +11,8 @@ https://docs.back.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from corsheaders.defaults import default_headers
+
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,7 +28,37 @@ SECRET_KEY = 'django-insecure-u)b1z15wu5fs8k(^7ao*byfx#@#_znclr(!-5d^!aep#!k1f$a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]']
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+    'session',
+    'CRYPT-SESSION',
+    'ENCRYPTED-DATA',
+    'responseType',
+    'Data-Header',
+]
+
+CORS_EXPOSE_HEADERS = [
+    "Session",
+    "HTTP_SESSION",
+    "SESSION",
+    "session",
+    'Data-Header',
+    'Set-Cookie',
+    'ETAG-DATE',
+]
+
 
 
 # Application definition
@@ -38,6 +70,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
     'drf_yasg',
     'core',
@@ -46,6 +79,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
