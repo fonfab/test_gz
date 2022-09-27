@@ -9,6 +9,7 @@
             <CardMain v-for="item in struct" :key="item"
                       :title="item.title"
                       :buttonTitle="item.buttonTitle"
+                      :buttonHref="item.buttonHref"
                       :colorType="item.colorType"
                       :items="item.items"
                       color="gray-3"/>
@@ -36,6 +37,7 @@ import CardMain from '@/components/navigation/CardMain.vue';
 interface IStruct {
   title: string,
   buttonTitle: string,
+  buttonHref: string,
   colorType: EColorType,
   items: ICardMainStructItem[],
 }
@@ -45,6 +47,7 @@ const struct: IStruct[] = [
   {
     title: 'База сделок',
     buttonTitle: 'Изучить',
+    buttonHref: '/deal',
     colorType: EColorType.GREEN,
     items: [
       {
@@ -64,6 +67,7 @@ const struct: IStruct[] = [
   {
     title: 'Отчеты отдела',
     buttonTitle: 'Перейти',
+    buttonHref: '',
     colorType: EColorType.BLUE,
     items: [
       {
@@ -83,6 +87,7 @@ const struct: IStruct[] = [
   {
     title: 'Контрагенты',
     buttonTitle: 'Настроить',
+    buttonHref: '/counterparty',
     colorType: EColorType.PURPLE,
     items: [
       {

@@ -18,6 +18,7 @@
 
     <div class="card-main__button">
       <ButtonStyled :text="props.buttonTitle"
+                    :href="props.buttonHref"
                     type="main"
                     subtype="main-second"
                     iconUrl="icons/arrow.svg"
@@ -57,6 +58,7 @@ import ButtonStyled from '@/app_core/unit/components_styled/ButtonStyled.vue';
 interface IProps {
   title: string,
   buttonTitle: string,
+  buttonHref: string,
   colorType: EColorType,
   items: ICardMainStructItem
 }

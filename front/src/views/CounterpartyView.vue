@@ -1,18 +1,8 @@
 <template>
-  <BaseView>
-
-    <template v-slot:contentHeader>
-      <div class="counterparty-view__content-header">
-        <ReportHeader :title="texts.title"/>
-        <ReportActions/>
-      </div>
-    </template>
-
-    <template v-slot:content>
-      {{getList}}
-    </template>
-
-  </BaseView>
+  <TableView :title="texts.title"
+             :struct="struct"
+             :data="getList"
+             @deleteList="deleteHandler"/>
 </template>
 
 
@@ -25,19 +15,38 @@ export default {};
 import {computed, onMounted} from 'vue';
 import useCounterpartyStore from '@/store/counterpartyStore';
 
-import BaseView from '@/views/unit/BaseView.vue';
-import ReportHeader from '@/components/navigation/ReportHeader.vue';
-import ReportActions from '@/components/navigation/ReportActions.vue';
+import {ICounterparty, ITableStruct} from '@/store/types';
+
+import TableView from '@/views/unit/TableView.vue';
 
 
 const texts = {
   title: 'Контрагенты',
 };
 
+
+const struct: ITableStruct[] = [
+  {
+    title: 'Контрагент',
+    value: (item) => (item as ICounterparty).name,
+  },
+  {
+    title: 'Рейтинг',
+    value: (item) => (item as ICounterparty).rating.rating,
+  },
+];
+
+
 const counterpartyStore = useCounterpartyStore();
 
 
 const getList = computed(() => counterpartyStore.getList);
+
+
+const deleteHandler = (ids: number[]) => {
+  counterpartyStore.deleteList(ids);
+};
+
 
 onMounted(() => {
   counterpartyStore.loadList();
@@ -47,17 +56,5 @@ onMounted(() => {
 
 
 <style lang="scss">
-
-.counterparty-view {
-  &__content-header {
-    display: grid;
-    grid-auto-flow: row;
-    grid-row-gap: 50px;
-  }
-
-  &__content {
-
-  }
-}
 
 </style>

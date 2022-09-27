@@ -13,12 +13,9 @@ export const noClassAttributes = ['disabled'];
 export const validators = {
   type: ['main', 'label'] as string[],
   subtype: [
-    'main-first', 'main-first-blur', 'main-second', 'main-decline',
-    'main-blue',
-    'main-green', 'main-green-line',
-    'label-green', 'label-black', 'label-blue',
-    'label-white', 'label-gray', 'icon',
-    'label-icon', 'main-green-blur',
+    'main-first', 'main-second',
+    'main-blue', 'main-green', 'main-red',
+    'label-gray', 'label-light-blue',
   ] as string[],
   disabled: [true, false] as boolean[],
 };

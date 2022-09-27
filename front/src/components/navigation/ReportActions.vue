@@ -7,21 +7,27 @@
                   subtype="main-green"
                   iconUrl="/icons/plus-round.svg"
                   iconType="svg"
-                  :iconSize="20"/>
+                  :iconSize="20"
+                  :disabled="props.createDisabled"
+                  @click="createClick"/>
 
     <ButtonStyled text="Редактировать"
                   type="main"
                   subtype="main-blue"
                   iconUrl="/icons/pen-round.svg"
                   iconType="svg"
-                  :iconSize="20"/>
+                  :iconSize="20"
+                  :disabled="props.updateDisabled"
+                  @click="updateClick"/>
 
     <ButtonStyled text="Удалить"
                   type="main"
                   subtype="main-red"
                   iconUrl="/icons/cross-round.svg"
                   iconType="svg"
-                  :iconSize="20"/>
+                  :iconSize="20"
+                  :disabled="props.deleteDisabled"
+                  @click="deleteClick"/>
   </div>
 </template>
 
@@ -34,6 +40,29 @@ export default {};
 <script setup lang="ts">
 import ButtonStyled from '@/app_core/unit/components_styled/ButtonStyled.vue';
 import SearchSecond from '@/components/search/SearchSecond.vue';
+
+
+interface IProps {
+  createDisabled: boolean,
+  updateDisabled: boolean,
+  deleteDisabled: boolean,
+}
+
+interface IEmits {
+  (event: 'createClick'): void,
+  (event: 'updateClick'): void,
+  (event: 'deleteClick'): void,
+}
+
+
+const emits = defineEmits<IEmits>();
+const props = defineProps<IProps>();
+
+
+const createClick = () => emits('createClick');
+const updateClick = () => emits('updateClick');
+const deleteClick = () => emits('deleteClick');
+
 </script>
 
 

@@ -12,7 +12,7 @@ export const noClassAttributes = [];
 export const validators = {
   color: [
     'white', 'black', 'blue', 'red',
-    'gray', 'gray-2', 'gray-3',
+    'gray', 'gray-2', 'gray-3', 'gray-4',
     'green', 'green-2',
   ] as Array<string>,
 };

@@ -1,18 +1,7 @@
 <template>
-  <BaseView>
-
-    <template v-slot:contentHeader>
-      <div class="deal-view__content-header">
-        <ReportHeader :title="texts.title"/>
-        <ReportActions/>
-      </div>
-    </template>
-
-    <template v-slot:content>
-
-    </template>
-
-  </BaseView>
+  <TableView :title="texts.title"
+             :struct="struct"
+             :data="getList"/>
 </template>
 
 
@@ -22,30 +11,44 @@ export default {};
 
 
 <script setup lang="ts">
-import BaseView from '@/views/unit/BaseView.vue';
-import ReportHeader from '@/components/navigation/ReportHeader.vue';
-import ReportActions from '@/components/navigation/ReportActions.vue';
+import {computed, onMounted} from 'vue';
+import useDealStore from '@/store/dealStore';
+
+import {ICounterparty, ITableStruct} from '@/store/types';
+
+import TableView from '@/views/unit/TableView.vue';
 
 
 const texts = {
   title: 'Сделки',
 };
 
+
+const struct: ITableStruct[] = [
+  {
+    title: 'Контрагент',
+    value: (item) => (item as ICounterparty).name,
+  },
+  {
+    title: 'Рейтинг',
+    value: (item) => (item as ICounterparty).rating.rating,
+  },
+];
+
+
+const dealStore = useDealStore();
+
+
+const getList = computed(() => dealStore.getList);
+
+
+onMounted(() => {
+  dealStore.loadList();
+});
+
 </script>
 
 
 <style lang="scss">
-
-.deal-view {
-  &__content-header {
-    display: grid;
-    grid-auto-flow: row;
-    grid-row-gap: 50px;
-  }
-
-  &__content {
-
-  }
-}
 
 </style>

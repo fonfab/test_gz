@@ -6,11 +6,11 @@ import useRequest from '@/app_core/core/assets/scripts/hooks/requestHook';
 import {ICounterparty} from '@/store/types';
 
 
-const url = baseUrls.main + '/counterparties';
+const url = baseUrls.main + '/deals';
 
 const request = useRequest();
 
-export const useCounterpartyStore = defineStore('counterparty', () => {
+export const useDealStore = defineStore('deal', () => {
   const list = ref<ICounterparty[]>([]);
   const isLoading = ref<boolean>(false);
 
@@ -18,35 +18,20 @@ export const useCounterpartyStore = defineStore('counterparty', () => {
 
 
   const loadList = async (): Promise<ICounterparty[]> => {
-    isLoading.value = true;
     return await request.get(url)
         .then((data: ICounterparty[]) => {
           list.value = data;
           return data;
         })
-        .finally(() => isLoading.value = false);
-  };
-
-  const deleteList = async (ids: number[]) => {
-    isLoading.value = true;
-    const requests = ids.map((item) => {
-      request.delete(url + '/' + item);
-    });
-
-    Promise.all(requests)
-        .then(() => {
-          list.value = list.value.filter((item) => !ids.includes(item.id));
-        })
-        .finally(() => isLoading.value = false);
+        .finally(() => isLoading.value);
   };
 
   return {
     getList,
 
     loadList,
-    deleteList,
   };
 });
 
 
-export default useCounterpartyStore;
+export default useDealStore;
