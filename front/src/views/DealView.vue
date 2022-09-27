@@ -14,7 +14,7 @@ export default {};
 import {computed, onMounted} from 'vue';
 import useDealStore from '@/store/dealStore';
 
-import {ICounterparty, ITableStruct} from '@/store/types';
+import {IDeal, ITableStruct} from '@/store/types';
 
 import TableView from '@/views/unit/TableView.vue';
 
@@ -27,11 +27,39 @@ const texts = {
 const struct: ITableStruct[] = [
   {
     title: 'Контрагент',
-    value: (item) => (item as ICounterparty).name,
+    value: (item) => (item as IDeal).type.name,
   },
   {
-    title: 'Рейтинг',
-    value: (item) => (item as ICounterparty).rating.rating,
+    title: 'Дата и время сделки',
+    value: (item) => new Date((item as IDeal).deal_date).toLocaleDateString(),
+  },
+  {
+    title: 'Контрагент',
+    value: (item) => (item as IDeal).counterparty.name,
+  },
+  {
+    title: 'Пункт поставки',
+    value: (item) => (item as IDeal).destination_place.name,
+  },
+  {
+    title: 'Инструмент',
+    value: (item) => (item as IDeal).inventory.name,
+  },
+  {
+    title: 'Начало поставки',
+    value: (item) => new Date((item as IDeal).start_date).toLocaleDateString(),
+  },
+  {
+    title: 'Конец поставки',
+    value: (item) => new Date((item as IDeal).end_date).toLocaleDateString(),
+  },
+  {
+    title: 'Объем, МВт',
+    value: (item) => (item as IDeal).amount,
+  },
+  {
+    title: 'Цена, евро / МВт * ч',
+    value: (item) => (item as IDeal).cost,
   },
 ];
 

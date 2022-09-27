@@ -33,8 +33,34 @@ export interface IRating extends IId {
   rating: string,
 }
 
+export interface IDealType extends IId {
+  name: string,
+}
+
+export interface IInventory extends IId {
+  name: string,
+}
+
+export interface IDestinationPlace extends IId {
+  name: string,
+}
+
 export interface ICounterparty extends IId {
   name: string,
   rating: IRating,
   rating_id: number,
+}
+
+
+export interface IDeal extends IId {
+  type: IDealType,
+  amount: number,
+  cost: number,
+  counterparty: ICounterparty,
+  inventory: IInventory,
+  destination_place: IDestinationPlace,
+
+  deal_date: string,
+  start_date: string,
+  end_date: string,
 }
