@@ -1,0 +1,590 @@
+[
+  {
+    "model": "core.rating",
+    "pk": 7,
+    "fields": {
+      "rating": "BB-"
+    }
+  },
+  {
+    "model": "core.rating",
+    "pk": 8,
+    "fields": {
+      "rating": "BBB"
+    }
+  },
+  {
+    "model": "core.rating",
+    "pk": 9,
+    "fields": {
+      "rating": "B-"
+    }
+  },
+  {
+    "model": "core.rating",
+    "pk": 10,
+    "fields": {
+      "rating": "CCC"
+    }
+  },
+  {
+    "model": "core.dealtype",
+    "pk": 1,
+    "fields": {
+      "name": "esp"
+    }
+  },
+  {
+    "model": "core.dealtype",
+    "pk": 2,
+    "fields": {
+      "name": "efet"
+    }
+  },
+  {
+    "model": "core.place",
+    "pk": 1,
+    "fields": {
+      "name": "Olbernhau II"
+    }
+  },
+  {
+    "model": "core.place",
+    "pk": 2,
+    "fields": {
+      "name": "VIP Bereg"
+    }
+  },
+  {
+    "model": "core.place",
+    "pk": 3,
+    "fields": {
+      "name": "VTP Austria"
+    }
+  },
+  {
+    "model": "core.place",
+    "pk": 4,
+    "fields": {
+      "name": "Baumgarten"
+    }
+  },
+  {
+    "model": "core.inventory",
+    "pk": 1,
+    "fields": {
+      "name": "2022"
+    }
+  },
+  {
+    "model": "core.inventory",
+    "pk": 2,
+    "fields": {
+      "name": "Sum-2021"
+    }
+  },
+  {
+    "model": "core.inventory",
+    "pk": 3,
+    "fields": {
+      "name": "Sum-2022"
+    }
+  },
+  {
+    "model": "core.inventory",
+    "pk": 4,
+    "fields": {
+      "name": "2021-Q3"
+    }
+  },
+  {
+    "model": "core.inventory",
+    "pk": 5,
+    "fields": {
+      "name": "2022-Q1"
+    }
+  },
+  {
+    "model": "core.inventory",
+    "pk": 6,
+    "fields": {
+      "name": "2021-Q2"
+    }
+  },
+  {
+    "model": "core.counterparty",
+    "pk": 10,
+    "fields": {
+      "name": "Контрагент 1",
+      "rating": 7
+    }
+  },
+  {
+    "model": "core.counterparty",
+    "pk": 11,
+    "fields": {
+      "name": "Контрагент 2",
+      "rating": 8
+    }
+  },
+  {
+    "model": "core.counterparty",
+    "pk": 12,
+    "fields": {
+      "name": "Контрагент 3",
+      "rating": 9
+    }
+  },
+  {
+    "model": "core.counterparty",
+    "pk": 13,
+    "fields": {
+      "name": "Контрагент 4",
+      "rating": 10
+    }
+  },
+  {
+    "model": "core.counterparty",
+    "pk": 14,
+    "fields": {
+      "name": "Контрагент 5",
+      "rating": 10
+    }
+  },
+  {
+    "model": "core.counterparty",
+    "pk": 15,
+    "fields": {
+      "name": "Контрагент 6",
+      "rating": 8
+    }
+  },
+  {
+    "model": "core.counterparty",
+    "pk": 16,
+    "fields": {
+      "name": "Контрагент 7",
+      "rating": 8
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 1,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-01-05T00:00:00Z",
+      "destination_place": 1,
+      "amount": 30.0,
+      "cost": 22.855,
+      "start_date": "2022-01-01T00:00:00Z",
+      "end_date": "2023-01-01T00:00:00Z",
+      "inventory": 1,
+      "counterparty": 14
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 2,
+    "fields": {
+      "type": 1,
+      "deal_date": "2022-01-06T00:00:00Z",
+      "destination_place": 2,
+      "amount": 10.0,
+      "cost": 16.885,
+      "start_date": "2021-04-01T00:00:00Z",
+      "end_date": "2021-10-01T00:00:00Z",
+      "inventory": 2,
+      "counterparty": 11
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 3,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-01-07T00:00:00Z",
+      "destination_place": 2,
+      "amount": 100.0,
+      "cost": 17.985,
+      "start_date": "2021-04-01T00:00:00Z",
+      "end_date": "2021-10-01T00:00:00Z",
+      "inventory": 2,
+      "counterparty": 11
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 4,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-01-07T00:00:00Z",
+      "destination_place": 1,
+      "amount": 90.0,
+      "cost": 17.62,
+      "start_date": "2022-04-01T00:00:00Z",
+      "end_date": "2022-10-01T00:00:00Z",
+      "inventory": 3,
+      "counterparty": 14
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 5,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-01-11T00:00:00Z",
+      "destination_place": 3,
+      "amount": 40.0,
+      "cost": 20.54,
+      "start_date": "2021-07-01T00:00:00Z",
+      "end_date": "2021-10-01T00:00:00Z",
+      "inventory": 4,
+      "counterparty": 16
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 6,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-01-11T00:00:00Z",
+      "destination_place": 2,
+      "amount": 60.0,
+      "cost": 18.51,
+      "start_date": "2021-04-01T00:00:00Z",
+      "end_date": "2021-10-01T00:00:00Z",
+      "inventory": 2,
+      "counterparty": 16
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 7,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-01-11T00:00:01Z",
+      "destination_place": 3,
+      "amount": 10.0,
+      "cost": 25.115,
+      "start_date": "2021-07-01T00:00:00Z",
+      "end_date": "2021-10-01T00:00:00Z",
+      "inventory": 4,
+      "counterparty": 16
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 8,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-01-11T00:00:02Z",
+      "destination_place": 3,
+      "amount": 10.0,
+      "cost": 24.095,
+      "start_date": "2021-07-01T00:00:00Z",
+      "end_date": "2021-10-01T00:00:00Z",
+      "inventory": 4,
+      "counterparty": 10
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 9,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-01-12T00:00:00Z",
+      "destination_place": 1,
+      "amount": 100.0,
+      "cost": 20.43,
+      "start_date": "2022-01-01T00:00:00Z",
+      "end_date": "2022-04-01T00:00:00Z",
+      "inventory": 5,
+      "counterparty": 14
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 10,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-01-12T00:00:04Z",
+      "destination_place": 1,
+      "amount": 40.0,
+      "cost": 19.625,
+      "start_date": "2021-07-01T00:00:00Z",
+      "end_date": "2021-10-01T00:00:00Z",
+      "inventory": 4,
+      "counterparty": 15
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 11,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-01-12T00:00:05Z",
+      "destination_place": 1,
+      "amount": 30.0,
+      "cost": 19.04,
+      "start_date": "2021-07-01T00:00:00Z",
+      "end_date": "2021-10-01T00:00:00Z",
+      "inventory": 4,
+      "counterparty": 15
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 12,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-01-18T00:00:00Z",
+      "destination_place": 1,
+      "amount": 20.0,
+      "cost": 18.91,
+      "start_date": "2022-01-01T00:00:00Z",
+      "end_date": "2023-01-01T00:00:00Z",
+      "inventory": 1,
+      "counterparty": 14
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 13,
+    "fields": {
+      "type": 2,
+      "deal_date": "2023-01-01T00:00:00Z",
+      "destination_place": 3,
+      "amount": 20.0,
+      "cost": 21.895,
+      "start_date": "2021-04-01T00:00:00Z",
+      "end_date": "2021-07-01T00:00:00Z",
+      "inventory": 6,
+      "counterparty": 10
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 14,
+    "fields": {
+      "type": 2,
+      "deal_date": "2021-01-19T00:00:00Z",
+      "destination_place": 3,
+      "amount": 10.0,
+      "cost": 22.535,
+      "start_date": "2021-04-01T00:00:00Z",
+      "end_date": "2021-07-01T00:00:00Z",
+      "inventory": 6,
+      "counterparty": 10
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 15,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-01-20T00:00:00Z",
+      "destination_place": 1,
+      "amount": 100.0,
+      "cost": 21.44,
+      "start_date": "2021-07-01T00:00:00Z",
+      "end_date": "2021-10-01T00:00:00Z",
+      "inventory": 4,
+      "counterparty": 13
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 16,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-01-21T00:00:00Z",
+      "destination_place": 3,
+      "amount": 10.0,
+      "cost": 23.12,
+      "start_date": "2021-07-01T00:00:00Z",
+      "end_date": "2021-10-01T00:00:00Z",
+      "inventory": 4,
+      "counterparty": 10
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 17,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-01-21T00:00:06Z",
+      "destination_place": 3,
+      "amount": 20.0,
+      "cost": 22.43,
+      "start_date": "2021-07-01T00:00:00Z",
+      "end_date": "2021-10-01T00:00:00Z",
+      "inventory": 4,
+      "counterparty": 10
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 18,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-01-22T00:00:00Z",
+      "destination_place": 1,
+      "amount": 80.0,
+      "cost": 26.44,
+      "start_date": "2021-07-01T00:00:00Z",
+      "end_date": "2021-10-01T00:00:00Z",
+      "inventory": 4,
+      "counterparty": 13
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 19,
+    "fields": {
+      "type": 2,
+      "deal_date": "2021-01-22T00:00:00Z",
+      "destination_place": 3,
+      "amount": 100.0,
+      "cost": 23.135,
+      "start_date": "2021-04-01T00:00:00Z",
+      "end_date": "2021-07-01T00:00:00Z",
+      "inventory": 6,
+      "counterparty": 16
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 20,
+    "fields": {
+      "type": 2,
+      "deal_date": "2021-01-22T00:00:07Z",
+      "destination_place": 3,
+      "amount": 50.0,
+      "cost": 25.965,
+      "start_date": "2021-07-01T00:00:00Z",
+      "end_date": "2021-10-01T00:00:00Z",
+      "inventory": 4,
+      "counterparty": 16
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 21,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-01-25T00:00:00Z",
+      "destination_place": 3,
+      "amount": 70.0,
+      "cost": 21.015,
+      "start_date": "2021-07-01T00:00:00Z",
+      "end_date": "2021-10-01T00:00:00Z",
+      "inventory": 4,
+      "counterparty": 10
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 22,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-01-25T00:00:00Z",
+      "destination_place": 1,
+      "amount": 100.0,
+      "cost": 21.5,
+      "start_date": "2022-01-01T00:00:00Z",
+      "end_date": "2022-04-01T00:00:00Z",
+      "inventory": 5,
+      "counterparty": 14
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 23,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-01-27T00:00:00Z",
+      "destination_place": 4,
+      "amount": 40.0,
+      "cost": 17.82,
+      "start_date": "2021-07-01T00:00:00Z",
+      "end_date": "2021-10-01T00:00:00Z",
+      "inventory": 4,
+      "counterparty": 12
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 24,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-01-27T00:00:08Z",
+      "destination_place": 4,
+      "amount": 80.0,
+      "cost": 23.52,
+      "start_date": "2021-07-01T00:00:00Z",
+      "end_date": "2021-10-01T00:00:00Z",
+      "inventory": 4,
+      "counterparty": 12
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 25,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-01-28T00:00:00Z",
+      "destination_place": 4,
+      "amount": 90.0,
+      "cost": 25.435,
+      "start_date": "2021-04-01T00:00:00Z",
+      "end_date": "2021-10-01T00:00:00Z",
+      "inventory": 2,
+      "counterparty": 12
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 26,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-02-01T00:00:00Z",
+      "destination_place": 1,
+      "amount": 80.0,
+      "cost": 19.71,
+      "start_date": "2022-01-01T00:00:00Z",
+      "end_date": "2023-01-01T00:00:00Z",
+      "inventory": 1,
+      "counterparty": 14
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 27,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-02-02T00:00:00Z",
+      "destination_place": 4,
+      "amount": 50.0,
+      "cost": 19.845,
+      "start_date": "2021-07-01T00:00:00Z",
+      "end_date": "2021-10-01T00:00:00Z",
+      "inventory": 4,
+      "counterparty": 12
+    }
+  },
+  {
+    "model": "core.deal",
+    "pk": 28,
+    "fields": {
+      "type": 1,
+      "deal_date": "2021-02-02T00:00:09Z",
+      "destination_place": 4,
+      "amount": 50.0,
+      "cost": 18.81,
+      "start_date": "2021-07-01T00:00:00Z",
+      "end_date": "2021-10-01T00:00:00Z",
+      "inventory": 4,
+      "counterparty": 12
+    }
+  }
+]
