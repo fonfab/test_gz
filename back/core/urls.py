@@ -11,6 +11,6 @@ router.register(r'places', PlaceViewSet)
 router.register(r'inventories', InventoryTypeViewSet)
 
 router.register(r'counterparties', CounterpartyViewSet)
-router.register(r'deal', DealViewSet)
+router.register(r'deals', DealViewSet)
 
 urlpatterns = router.urls
