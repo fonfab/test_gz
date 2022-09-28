@@ -13,4 +13,6 @@ router.register(r'inventories', InventoryTypeViewSet)
 router.register(r'counterparties', CounterpartyViewSet)
 router.register(r'deals', DealViewSet)
 
+router.register(r'report', ReportView, basename='report')
+
 urlpatterns = router.urls
