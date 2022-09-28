@@ -2,6 +2,7 @@ from .serializers import *
 from .models import *
 
 from rest_framework import viewsets
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class RatingViewSet(viewsets.ModelViewSet):
@@ -38,3 +39,5 @@ class DealViewSet(viewsets.ModelViewSet):
 
     serializer_class = DealSerializer
     queryset = objects.Deal.objects.all()
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['counterparty_id', ]
