@@ -4,7 +4,7 @@
   </div>
 
   <router-link v-else-if="getElementType === 'routerLink'"
-               :to="{path: props.href}">
+               :to="props.href">
 
     <slot>Это какая-то обернутая внутренняя ссылка</slot>
   </router-link>

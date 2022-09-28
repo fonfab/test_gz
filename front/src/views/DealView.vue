@@ -11,7 +11,8 @@ export default {};
 
 
 <script setup lang="ts">
-import {computed, onMounted} from 'vue';
+import {computed, onMounted, onUnmounted} from 'vue';
+import {useRoute} from 'vue-router';
 import useDealStore from '@/store/dealStore';
 
 import {IDeal, ITableStruct} from '@/store/types';
@@ -64,6 +65,7 @@ const struct: ITableStruct[] = [
 ];
 
 
+const route = useRoute();
 const dealStore = useDealStore();
 
 
@@ -71,7 +73,15 @@ const getList = computed(() => dealStore.getList);
 
 
 onMounted(() => {
+  if (route.query.counterparty_id) {
+    dealStore.setCounterpartyId(route.query.counterparty_id.toString());
+  } else dealStore.setCounterpartyId('');
+
   dealStore.loadList();
+});
+
+onUnmounted(() => {
+  dealStore.clear();
 });
 
 </script>

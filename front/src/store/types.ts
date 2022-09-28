@@ -14,13 +14,21 @@ export interface ICardMainStructItem {
   text: string,
 }
 
+export interface ITableRowAction {
+  title: string,
+  href: string,
+}
+
 export interface ITableRow {
   id: number,
-  items: Array<string | number>
+  items: Array<string | number>,
+  actions?: ITableRowAction[],
 }
 
 export interface ITableStruct {
   title: string,
+  type?: 'text' | 'button',
+  href?: (item: unknown) => string,
   value: (item: unknown) => string | number,
 }
 

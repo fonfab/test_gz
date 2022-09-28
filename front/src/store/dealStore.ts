@@ -13,12 +13,21 @@ const request = useRequest();
 export const useDealStore = defineStore('deal', () => {
   const list = ref<ICounterparty[]>([]);
   const isLoading = ref<boolean>(false);
+  const counterpartyId = ref<string | number>('');
 
   const getList = computed<ICounterparty[]>(() => list.value);
 
 
+  const setCounterpartyId = (id: string | number) => {
+    counterpartyId.value = id;
+  };
+
   const loadList = async (): Promise<ICounterparty[]> => {
-    return await request.get(url)
+    let currentUrl = url;
+
+    if (counterpartyId.value) currentUrl += `?counterparty_id=${counterpartyId.value}`;
+
+    return await request.get(currentUrl)
         .then((data: ICounterparty[]) => {
           list.value = data;
           return data;
@@ -26,10 +35,18 @@ export const useDealStore = defineStore('deal', () => {
         .finally(() => isLoading.value);
   };
 
+  const clear = () => {
+    setCounterpartyId('');
+    list.value = [];
+  };
+
   return {
     getList,
 
+    setCounterpartyId,
     loadList,
+
+    clear,
   };
 });
 

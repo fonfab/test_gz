@@ -29,7 +29,7 @@ export default {};
 <script setup lang="ts">
 import {computed, ref} from 'vue';
 
-import {ITableRow, ITableStruct, IId} from '@/store/types';
+import {ITableRow, ITableStruct, IId, ITableRowAction} from '@/store/types';
 
 import BaseView from '@/views/unit/BaseView.vue';
 import ReportHeader from '@/components/navigation/ReportHeader.vue';
@@ -58,7 +58,13 @@ const getHeaders = computed(() => props.struct.map((item) => item.title));
 const getRows = computed<ITableRow[]>(() => {
   return props.data.map((item): ITableRow => ({
     id: (item as IId).id,
-    items: props.struct.map((structItem) => structItem.value(item)),
+    items: props.struct.filter((structItem) => structItem.type == null || structItem.type === 'text')
+        .map((structItem) => structItem.value(item)),
+    actions: props.struct.filter((structItem) => structItem.type === 'button')
+        .map((structItem): ITableRowAction => ({
+          title: structItem.value(item).toLocaleString(),
+          href: structItem.href ? structItem.href(item) : '',
+        })),
   }));
 });
 

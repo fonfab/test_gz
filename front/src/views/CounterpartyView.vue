@@ -34,6 +34,12 @@ const struct: ITableStruct[] = [
     title: 'Рейтинг',
     value: (item) => (item as ICounterparty).rating.rating,
   },
+  {
+    title: 'Сделки',
+    type: 'button',
+    href: (item) => `/deal?counterparty_id=${(item as ICounterparty).id}`,
+    value: () => 'Показать',
+  },
 ];
 
 
@@ -49,7 +55,7 @@ const deleteHandler = (ids: number[]) => {
 
 
 onMounted(() => {
-  counterpartyStore.loadList();
+  if (getList.value.length === 0) counterpartyStore.loadList();
 });
 
 </script>

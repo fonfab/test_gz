@@ -25,6 +25,13 @@
                      :fontWeight="400"
                      location="left"/>
       </td>
+
+      <td v-for="item in row.actions" :key="item">
+        <ButtonStyled :text="item.title"
+                      :href="item.href"
+                      type="main"
+                      subtype="main-first"/>
+      </td>
     </tr>
 
   </table>
@@ -42,6 +49,7 @@ import {ref, watch} from 'vue';
 import {ITableRow} from '@/store/types';
 
 import LabelStyled from '@/app_core/unit/components_styled/LabelStyled.vue';
+import ButtonStyled from '@/app_core/unit/components_styled/ButtonStyled.vue';
 import IconComponent from '@/app_core/unit/components/IconComponent.vue';
 
 
