@@ -72,3 +72,10 @@ export interface IDeal extends IId {
   start_date: string,
   end_date: string,
 }
+
+
+export interface IReport {
+  rating_name: string,
+  amount: number,
+  cost: number,
+}

@@ -16,6 +16,7 @@
                     subtype="main-first"/>
 
       <ButtonStyled text="Отчеты"
+                    href="/report"
                     :fontSize="16"
                     type="main"
                     subtype="main-first"/>

@@ -67,7 +67,7 @@ const struct: IStruct[] = [
   {
     title: 'Отчеты отдела',
     buttonTitle: 'Перейти',
-    buttonHref: '',
+    buttonHref: '/report',
     colorType: EColorType.BLUE,
     items: [
       {

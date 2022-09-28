@@ -4,17 +4,24 @@
     <template v-slot:contentHeader>
       <div class="table-view__content-header">
         <ReportHeader :title="props.title"/>
-        <ReportActions :createDisabled="selectedRows.length !== 0"
+        <ReportActions v-if="props.headerType === 'main'"
+                       :createDisabled="selectedRows.length !== 0"
                        :updateDisabled="selectedRows.length !== 1"
                        :deleteDisabled="selectedRows.length < 1"
                        @deleteClick="deleteHandler"/>
+
+        <ReportActionsSecond v-else-if="props.headerType === 'second'"
+                             @renewClick="renewHandler"/>
+
+        <template v-else/>
       </div>
     </template>
 
     <template v-slot:content>
       <TableComponent v-model:selectedRows="selectedRows"
                       :headers="getHeaders"
-                      :rows="getRows"/>
+                      :rows="getRows"
+                      :selectDisabled="props.selectDisabled"/>
     </template>
 
   </BaseView>
@@ -34,6 +41,7 @@ import {ITableRow, ITableStruct, IId, ITableRowAction} from '@/store/types';
 import BaseView from '@/views/unit/BaseView.vue';
 import ReportHeader from '@/components/navigation/ReportHeader.vue';
 import ReportActions from '@/components/navigation/ReportActions.vue';
+import ReportActionsSecond from '@/components/navigation/ReportActionsSecond.vue';
 import TableComponent from '@/app_core/unit/components/TableComponent.vue';
 
 
@@ -41,10 +49,13 @@ interface IProps {
   title: string,
   struct: ITableStruct[],
   data: unknown[],
+  selectDisabled: boolean,
+  headerType: 'main' | 'second',
 }
 
 interface IEmits {
   (event: 'deleteList', value: number[]): void
+  (event: 'renewList'): void
 }
 
 const props = defineProps<IProps>();
@@ -69,9 +80,8 @@ const getRows = computed<ITableRow[]>(() => {
 });
 
 
-const deleteHandler = () => {
-  emits('deleteList', selectedRows.value);
-};
+const deleteHandler = () => emits('deleteList', selectedRows.value);
+const renewHandler = () => emits('renewList');
 
 </script>
 

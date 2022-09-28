@@ -1,7 +1,8 @@
 <template>
   <TableView :title="texts.title"
              :struct="struct"
-             :data="getList"/>
+             :data="getList"
+             headerType="main"/>
 </template>
 
 
@@ -81,7 +82,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  dealStore.clear();
+  dealStore.clearList();
 });
 
 </script>

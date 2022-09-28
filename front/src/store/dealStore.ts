@@ -35,7 +35,7 @@ export const useDealStore = defineStore('deal', () => {
         .finally(() => isLoading.value);
   };
 
-  const clear = () => {
+  const clearList = () => {
     setCounterpartyId('');
     list.value = [];
   };
@@ -46,7 +46,7 @@ export const useDealStore = defineStore('deal', () => {
     setCounterpartyId,
     loadList,
 
-    clear,
+    clearList,
   };
 });
 

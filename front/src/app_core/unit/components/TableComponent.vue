@@ -11,7 +11,10 @@
     </tr>
 
     <tr v-for="row in props.rows" :key="row"
-        :class="{selected: isSelected(row.id)}"
+        :class="{
+          'selected': isSelected(row.id),
+          'select-disabled': props.selectDisabled,
+        }"
         @click="selectRow(row.id)">
 
       <td class="table__check">
@@ -56,6 +59,7 @@ import IconComponent from '@/app_core/unit/components/IconComponent.vue';
 interface IProps {
   headers: string[],
   rows: ITableRow[],
+  selectDisabled: boolean,
   selectedRows: number[],
 }
 
@@ -73,6 +77,8 @@ const selectedRows = ref<number[]>(props.selectedRows);
 const isSelected = (id: number) => selectedRows.value.some((item) => item === id);
 
 const selectRow = (id: number) => {
+  if (props.selectDisabled) return;
+
   if (isSelected(id)) {
     selectedRows.value = selectedRows.value.filter((item) => item !== id);
   } else {
@@ -109,7 +115,7 @@ watch(
       background: white;
     }
 
-    &:not(:first-child) {
+    &:not(:first-child):not(.select-disabled) {
       cursor: pointer;
 
       &:hover {

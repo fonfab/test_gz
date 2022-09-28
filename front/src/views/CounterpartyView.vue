@@ -2,6 +2,7 @@
   <TableView :title="texts.title"
              :struct="struct"
              :data="getList"
+             headerType="main"
              @deleteList="deleteHandler"/>
 </template>
 

@@ -79,26 +79,6 @@ const deleteClick = () => emits('deleteClick');
   background: white;
   box-shadow: 3px 4px 15px -10px rgba(0, 110, 189, 0.2), 0px 1px 30px -3px rgba(0, 78, 135, 0.12);
   border-radius: 20px;
-
-  &__title {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: max-content 1fr max-content;
-    grid-column-gap: 32px;
-    align-items: flex-end;
-
-    &__separator {
-      width: 100%;
-      height: 1px;
-      margin-bottom: 20px;
-
-      background: white;
-    }
-
-    .button {
-      margin-bottom: 5px;
-    }
-  }
 }
 
 </style>
